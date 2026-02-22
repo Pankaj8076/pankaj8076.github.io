@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pankaj Chavan — Financial & Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f5f0;
+  --ink: #1c1711;
+  --cream: #f0ebe2;
+  --warm: #e8e0d0;
+  --gold: #b8860b;
+  --gold-light: #d4a017;
+  --gold-pale: #f5ecd0;
+  --rust: #8b3a2a;
+  --forest: #2c4a3e;
+  --navy: #1a2744;
+  --slate: #4a5568;
+  --muted: #8a7f6e;
+  --border: #ddd5c0;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transition: transform 0.1s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  width: 32px; height: 32px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transition: transform 0.15s, width 0.3s, height 0.3s;
+  mix-blend-mode: multiply;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(248,245,240,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  text-decoration: none; letter-spacing: 0.05em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  padding: 10px 22px; background: var(--ink); color: var(--bg);
+  border-radius: 100px; font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: background 0.2s;
+  letter-spacing: 0.03em;
+}
+.nav-cta:hover { background: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 60px 80px;
+  position: relative; overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--cream) 60%, var(--warm) 100%);
+}
+
+/* Geometric pattern */
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(184,134,11,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(44,74,62,0.04) 0%, transparent 50%);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute; right: -100px; top: 50%;
+  transform: translateY(-50%);
+  width: 600px; height: 600px;
+  border: 1px solid rgba(184,134,11,0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 80px rgba(184,134,11,0.04),
+    0 0 0 160px rgba(184,134,11,0.02);
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 32px; height: 1px; background: var(--gold);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 700; line-height: 1.0;
+  color: var(--ink); margin-bottom: 8px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: italic; color: var(--gold);
+  display: block;
+}
+
+.hero-designation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; font-style: italic;
+  color: var(--muted); margin-bottom: 28px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-desc {
+  font-size: 16px; line-height: 1.8; color: var(--slate);
+  max-width: 560px; margin-bottom: 40px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-desc strong { color: var(--ink); font-weight: 600; }
+
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.btn-primary {
+  padding: 14px 28px; background: var(--ink); color: var(--bg);
+  border-radius: 100px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+.btn-secondary {
+  padding: 14px 28px; background: transparent; color: var(--ink);
+  border: 1px solid var(--border); border-radius: 100px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+.hero-stats {
+  position: absolute; right: 60px; bottom: 80px;
+  display: flex; flex-direction: column; gap: 24px;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.hstat {
+  text-align: right;
+  border-right: 2px solid var(--gold);
+  padding-right: 20px;
+}
+
+.hstat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 700; line-height: 1;
+  color: var(--ink);
+}
+
+.hstat-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* ── SECTIONS ── */
+section { padding: 100px 60px; }
+
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::after { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--ink); margin-bottom: 16px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-sub {
+  font-size: 16px; color: var(--muted); line-height: 1.7;
+  max-width: 560px; margin-bottom: 60px;
+}
+
+/* ── ABOUT ── */
+.about { background: var(--white); }
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+
+.about-text p {
+  font-size: 15px; line-height: 1.9; color: var(--slate);
+  margin-bottom: 20px;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-text strong { color: var(--ink); font-weight: 600; }
+
+.about-pillars { display: flex; flex-direction: column; gap: 16px; }
+
+.pillar {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px 24px;
+  border-left: 4px solid var(--gold);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateX(6px); box-shadow: -4px 0 20px rgba(184,134,11,0.08); }
+
+.pillar-icon { font-size: 22px; margin-bottom: 8px; }
+.pillar-title { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+.pillar-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── JOURNEY ── */
+.journey { background: var(--ink); color: var(--bg); }
+.journey .section-title { color: var(--bg); }
+.journey .section-sub { color: rgba(255,255,255,0.5); }
+.journey .section-tag { color: var(--gold-light); }
+.journey .section-tag::after { background: var(--gold-light); }
+
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+}
+
+.timeline-item {
+  position: relative; margin-bottom: 48px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.timeline-item::before {
+  content: ''; position: absolute;
+  left: -36px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%; background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184,134,11,0.2);
+}
+
+.tl-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--gold-light);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.tl-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; color: var(--bg);
+  margin-bottom: 6px;
+}
+
+.tl-org {
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  margin-bottom: 10px; font-style: italic;
+}
+
+.tl-desc {
+  font-size: 14px; color: rgba(255,255,255,0.65);
+  line-height: 1.7; max-width: 600px;
+}
+
+.tl-tag {
+  display: inline-flex; margin-top: 10px; margin-right: 6px;
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 11px; font-family: 'JetBrains Mono', monospace;
+  background: rgba(184,134,11,0.12); color: var(--gold-light);
+  border: 1px solid rgba(184,134,11,0.2);
+}
+
+/* ── SKILLS ── */
+.skills { background: var(--cream); }
+
+.skills-universe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-cluster {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 18px; padding: 28px;
+  transition: all 0.25s;
+}
+
+.skill-cluster:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(184,134,11,0.08);
+  transform: translateY(-4px);
+}
+
+.cluster-icon { font-size: 28px; margin-bottom: 14px; }
+
+.cluster-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 700; color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.cluster-sub {
+  font-size: 12px; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 16px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.skill-tag {
+  padding: 5px 12px; border-radius: 100px;
+  font-size: 12px; font-weight: 500;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--slate); transition: all 0.2s;
+}
+
+.skill-cluster:hover .skill-tag {
+  border-color: rgba(184,134,11,0.3);
+  color: var(--ink);
+}
+
+.skill-tag.highlight {
+  background: var(--gold-pale);
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── DIFFERENTIATOR ── */
+.differentiator {
+  background: linear-gradient(135deg, var(--navy) 0%, #0f1a30 100%);
+  position: relative; overflow: hidden;
+}
+
+.differentiator::before {
+  content: '';
+  position: absolute; right: -200px; top: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+}
+
+.differentiator .section-title { color: #fff; }
+.differentiator .section-sub { color: rgba(255,255,255,0.5); }
+.differentiator .section-tag { color: var(--gold-light); }
+.differentiator .section-tag::after { background: var(--gold-light); }
+
+.diff-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.diff-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 28px;
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+
+.diff-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.diff-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(184,134,11,0.3); }
+.diff-card:hover::before { transform: scaleX(1); }
+
+.diff-icon { font-size: 32px; margin-bottom: 16px; }
+.diff-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.diff-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.diff-quote {
+  margin-top: 14px; padding: 12px 16px;
+  background: rgba(184,134,11,0.08); border-left: 2px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  font-size: 12px; font-style: italic; color: var(--gold-light);
+  line-height: 1.6;
+}
+
+/* ── PROJECTS ── */
+.projects { background: var(--white); }
+
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 26px;
+  transition: all 0.25s; position: relative;
+}
+
+.project-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(184,134,11,0.1);
+  transform: translateY(-4px);
+}
+
+.project-type {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+.project-type::before {
+  content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--gold);
+}
+
+.project-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 700; color: var(--ink);
+  margin-bottom: 10px; line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.project-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tool {
+  padding: 3px 10px; border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  background: var(--warm); color: var(--slate);
+  border: 1px solid var(--border);
+}
+
+/* ── UNIQUE ANGLE ── */
+.unique { background: var(--bg); }
+
+.unique-grid {
+  display: grid; grid-template-columns: 3fr 2fr;
+  gap: 60px; align-items: center;
+}
+
+.unique-text p {
+  font-size: 15px; line-height: 1.9; color: var(--slate);
+  margin-bottom: 16px;
+}
+
+.unique-text p strong { color: var(--ink); }
+
+.knowledge-domains { display: flex; flex-direction: column; gap: 12px; }
+
+.domain-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; transition: all 0.2s;
+}
+
+.domain-item:hover { border-color: var(--gold); transform: translateX(4px); }
+
+.domain-icon { font-size: 20px; flex-shrink: 0; }
+.domain-name { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+.domain-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ── CONTACT ── */
+.contact {
+  background: var(--ink);
+  text-align: center;
+  padding: 100px 60px;
+}
+
+.contact .section-tag { justify-content: center; }
+.contact .section-tag::after { display: none; }
+.contact .section-title { color: var(--bg); text-align: center; }
+.contact .section-sub { color: rgba(255,255,255,0.45); margin: 0 auto 48px; text-align: center; }
+
+.contact-links {
+  display: flex; justify-content: center;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 48px;
+}
+
+.contact-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; border-radius: 100px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: all 0.25s;
+}
+
+.cl-primary { background: var(--gold); color: var(--ink); }
+.cl-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.cl-secondary {
+  background: transparent; color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.cl-secondary:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+.contact-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0f0c08; padding: 24px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: rgba(255,255,255,0.4);
+}
+
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: rgba(255,255,255,0.2);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  section { padding: 70px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-stats { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .skills-universe { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .unique-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+  .cursor, .cursor-ring { display: none; }
+  body { cursor: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pankaj<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="/cdn-cgi/l/email-protection#8dfdece3e6ece7e5eee5ecfbece3b5bdbabbcdeae0ece4e1a3eee2e0" class="nav-cta">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Financial & Data Analyst · Pune, India</div>
+    <h1>Pankaj<br><em>Chavan</em></h1>
+    <div class="hero-designation">Where Finance Meets Data, Strategy Meets Execution</div>
+    <p class="hero-desc">
+      A rare combination of <strong>financial operations experience</strong>, <strong>engineering analytical rigour</strong>, and <strong>deep macro-policy knowledge</strong> — built through 2+ years in enterprise finance, UPSC preparation, and defense services examination.
+    </p>
+    <div class="hero-actions">
+      <a href="https://www.linkedin.com/in/pankaj-h-chavan-8076/" target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn Profile
+      </a>
+      <a href="https://github.com/Pankaj8076" target="_blank" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub Projects
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num">2+</div>
+      <div class="hstat-lbl">Years Experience</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">8.94</div>
+      <div class="hstat-lbl">BE CGPA</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">2×</div>
+      <div class="hstat-lbl">SSB Attended</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">500+</div>
+      <div class="hstat-lbl">LinkedIn Network</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-tag">About Me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-title" style="margin-bottom:28px">Not Your <em>Typical</em> Analyst</div>
+      <p>I am a Financial & Data Analyst based in Pune with a background that most people in finance don't have — and most people in data don't have either. That intersection is where I operate.</p>
+      <p>With a <strong>BE in Electronics & Telecommunication Engineering (CGPA 8.94)</strong> from Savitribai Phule Pune University, I was trained to think in systems, find signal in noise, and solve problems with precision. That foundation shapes everything I do with financial data.</p>
+      <p>After graduation, I spent <strong>2.5 years preparing for UPSC Civil Services and Indian Armed Forces examinations</strong> — clearing AFCAT and CDS written exams and attending two SSBs. This wasn't time away from a career. It was an intensive education in Indian economics, public policy, geopolitics, defense strategy, and world history that most finance professionals never get.</p>
+      <p>Since February 2024, I have been working as an Analyst at <strong>Sakon</strong> — a US-based global technology expense management firm serving Fortune 500 clients — doing financial reconciliation, cost analysis, variance investigation, and enterprise client management. I was recognised with a <strong>Certificate of Appreciation for 100% SLA adherence</strong> and independently leading a full data cleanup initiative.</p>
+      <p>I actively use <strong>AI tools in my daily workflow</strong> — from generating complex Excel formulas and accelerating report generation, to drafting client communications and building dashboards. I see AI as a force multiplier for financial analysis, and I'm building my career at the intersection of finance domain expertise and AI-augmented productivity.</p>
+    </div>
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">⚙️</div>
+        <div class="pillar-title">Engineering Thinking</div>
+        <div class="pillar-desc">Systems perspective and quantitative rigour from BE E&TC — I see financial problems as systems to be understood and optimised, not just numbers to be reported.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <div class="pillar-title">Financial Domain Depth</div>
+        <div class="pillar-desc">2+ years of real financial operations — reconciliation, cost analysis, variance, client management — with Fortune 500 US enterprise clients at Sakon.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌏</div>
+        <div class="pillar-title">Macro & Policy Intelligence</div>
+        <div class="pillar-desc">Deep knowledge of Indian and global economics, government policy, geopolitics, defense, and history from 2.5 years of UPSC and defense examination preparation.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤖</div>
+        <div class="pillar-title">AI-Augmented Productivity</div>
+        <div class="pillar-desc">Daily use of AI tools for financial analysis, report generation, Excel automation, and client communication — multiplying output quality and speed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="section-tag">My Journey</div>
+  <div class="section-title" style="margin-bottom:16px">A Path Built on <em>Deliberate</em> Choices</div>
+  <div class="section-sub">Every chapter — engineering, defense, civil services, finance — has compounded into a profile that is genuinely rare.</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-period">2017 – 2021</div>
+      <div class="tl-title">BE Electronics & Telecommunication Engineering</div>
+      <div class="tl-org">Savitribai Phule Pune University</div>
+      <div class="tl-desc">Graduated with CGPA 8.94 — building a strong foundation in quantitative analysis, systems thinking, signal processing, and technical problem-solving. The engineering mindset — structured, rigorous, data-driven — became the lens through which I approach every analytical challenge.</div>
+      <span class="tl-tag">CGPA 8.94</span>
+      <span class="tl-tag">E&TC Engineering</span>
+      <span class="tl-tag">Quantitative Foundation</span>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-period">2021 – 2024</div>
+      <div class="tl-title">UPSC Civil Services & Indian Armed Forces Preparation</div>
+      <div class="tl-org">AFCAT · Indian Navy SSB · Indian Air Force SSB</div>
+      <div class="tl-desc">Three years that built what no MBA program teaches: deep understanding of Indian economic history from 1947, how fiscal and monetary policy actually works, how government procurement and defense budgets are structured, how geopolitical shifts create economic consequences, and how to synthesise complex information under pressure. Cleared AFCAT written exam. Attended two SSBs — the Indian Armed Forces' most rigorous officer selection process testing leadership, judgment, and character — reaching the conference round both times. First SSB with the Indian Navy, shortlisted based on engineering marks. Second SSB with the Indian Air Force, through AFCAT clearance.</div>
+      <span class="tl-tag">AFCAT Cleared</span>
+      <span class="tl-tag">Indian Navy SSB · Shortlisted on Engineering Merit</span>
+      <span class="tl-tag">Indian Air Force SSB · Via AFCAT</span>
+      <span class="tl-tag">2× Conference Round</span>
+      <div class="tl-tag">Macro Economics</div>
+      <span class="tl-tag">Defense Policy</span>
+      <span class="tl-tag">Geopolitics</span>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-period">February 2024 – Present</div>
+      <div class="tl-title">Financial Operations Analyst</div>
+      <div class="tl-org">Sakon · Pune, Maharashtra</div>
+      <div class="tl-desc">Managing telecom expense inventory, billing reconciliation, cost analysis, and financial reporting for Fortune 500 US enterprise clients. Conducting period-over-period variance analysis, root cause investigation of billing anomalies, dispute management with vendors, and client-facing financial communication. Reduced recurring financial discrepancies by ~90%. Maintained near-zero reporting error rate. Recognised with Certificate of Appreciation for 100% SLA adherence and independently leading a full data cleanup initiative.</div>
+      <span class="tl-tag">Fortune 500 Clients</span>
+      <span class="tl-tag">Financial Reconciliation</span>
+      <span class="tl-tag">Cost Analysis</span>
+      <span class="tl-tag">100% SLA</span>
+      <span class="tl-tag">Certificate of Appreciation</span>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-period">2024 – Present</div>
+      <div class="tl-title">Continuous Skill Development</div>
+      <div class="tl-org">Financial Analysis · AI Tools · Data Projects</div>
+      <div class="tl-desc">Actively building financial modeling, valuation, and FP&A capabilities. Completed IBM Data Analysis with Python certification. Building portfolio projects in financial analytics, reconciliation automation, and BFSI data analysis. Daily use of AI tools for workflow acceleration. Developing toward roles at the intersection of finance, data, and macro-policy intelligence.</div>
+      <span class="tl-tag">IBM Certified</span>
+      <span class="tl-tag">Financial Modeling</span>
+      <span class="tl-tag">AI-Augmented Analysis</span>
+      <span class="tl-tag">Portfolio Projects</span>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-tag">Skills & Expertise</div>
+  <div class="section-title">The Full <em>Toolkit</em></div>
+  <div class="section-sub">A rare combination of financial, technical, macro, and AI capabilities — each reinforcing the others.</div>
+
+  <div class="skills-universe">
+    <div class="skill-cluster">
+      <div class="cluster-icon">💹</div>
+      <div class="cluster-title">Financial Analysis</div>
+      <div class="cluster-sub">Core Finance Domain</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Billing Reconciliation</span>
+        <span class="skill-tag highlight">Variance Analysis</span>
+        <span class="skill-tag highlight">Cost Analysis</span>
+        <span class="skill-tag">MIS Reporting</span>
+        <span class="skill-tag">Spend Trend Analysis</span>
+        <span class="skill-tag">Dispute Management</span>
+        <span class="skill-tag">RCA</span>
+        <span class="skill-tag">FP&A Fundamentals</span>
+        <span class="skill-tag">Financial Modeling</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="cluster-icon">🛠</div>
+      <div class="cluster-title">Tools & Technology</div>
+      <div class="cluster-sub">Technical Proficiency</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Advanced Excel</span>
+        <span class="skill-tag highlight">Power BI</span>
+        <span class="skill-tag highlight">SQL</span>
+        <span class="skill-tag">Python (pandas, numpy)</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">VLOOKUP / XLOOKUP</span>
+        <span class="skill-tag">Data Validation</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Dashboard Design</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="cluster-icon">🤖</div>
+      <div class="cluster-title">AI & Automation</div>
+      <div class="cluster-sub">AI-Augmented Workflow</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Claude / ChatGPT</span>
+        <span class="skill-tag highlight">AI-Assisted Excel</span>
+        <span class="skill-tag">Formula Automation</span>
+        <span class="skill-tag">AI Report Writing</span>
+        <span class="skill-tag">Power BI AI Features</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">AI Dashboard Dev</span>
+        <span class="skill-tag">Workflow Automation</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="cluster-icon">🌏</div>
+      <div class="cluster-title">Macro & Policy</div>
+      <div class="cluster-sub">Rare Strategic Knowledge</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Indian Economic Policy</span>
+        <span class="skill-tag highlight">Geopolitics</span>
+        <span class="skill-tag highlight">Defense Policy</span>
+        <span class="skill-tag">Fiscal & Monetary Policy</span>
+        <span class="skill-tag">Government Budget Analysis</span>
+        <span class="skill-tag">Policy Impact Analysis</span>
+        <span class="skill-tag">Indian History</span>
+        <span class="skill-tag">World History</span>
+        <span class="skill-tag">International Relations</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="cluster-icon">🤝</div>
+      <div class="cluster-title">Stakeholder & Communication</div>
+      <div class="cluster-sub">Client & Team Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">US Client Management</span>
+        <span class="skill-tag highlight">Cross-functional Teams</span>
+        <span class="skill-tag">Vendor Communication</span>
+        <span class="skill-tag">Executive Reporting</span>
+        <span class="skill-tag">RCA Documentation</span>
+        <span class="skill-tag">Dispute Resolution</span>
+        <span class="skill-tag">Structured Reporting</span>
+        <span class="skill-tag">Email Communication</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="cluster-icon">🎖</div>
+      <div class="cluster-title">Leadership & Character</div>
+      <div class="cluster-sub">SSB-Assessed Qualities</div>
+      <div class="skill-tags">
+        <span class="skill-tag highlight">Navy & Air Force SSB</span>
+        <span class="skill-tag highlight">Pressure Performance</span>
+        <span class="skill-tag">Decision Under Ambiguity</span>
+        <span class="skill-tag">Long-term Discipline</span>
+        <span class="skill-tag">Group Leadership</span>
+        <span class="skill-tag">Planning & Execution</span>
+        <span class="skill-tag">Intellectual Rigour</span>
+        <span class="skill-tag">Adaptability</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR -->
+<section class="differentiator">
+  <div class="section-tag">What Makes Me Different</div>
+  <div class="section-title" style="margin-bottom:16px">The Intersection <em>Nobody Else</em> Occupies</div>
+  <div class="section-sub">Four capabilities that are common individually. Together — genuinely rare.</div>
+
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-icon">⚙️ + 💹</div>
+      <div class="diff-title">Engineer Who Thinks in Finance</div>
+      <div class="diff-desc">Most financial analysts cannot code or think in systems. Most engineers cannot read a balance sheet or understand cost drivers. I do both — naturally — because I was trained in one and built the other through real operational experience.</div>
+      <div class="diff-quote">"I see financial problems as systems to be debugged, not just numbers to be reported."</div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-icon">📜 + 📊</div>
+      <div class="diff-title">Macro Depth in a Micro Role</div>
+      <div class="diff-desc">When I analyse a company's cost structure, I understand the policy environment shaping it — RBI decisions, government procurement rules, geopolitical supply chain risks. Most analysts see the number. I see why the number is what it is.</div>
+      <div class="diff-quote">"UPSC gave me what no MBA program teaches: why the economy behaves the way it does."</div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-icon">🎖️ + 🧠</div>
+      <div class="diff-title">Character Forged Under Pressure</div>
+      <div class="diff-desc">Two SSB interviews — the Indian Armed Forces' most rigorous leadership assessment — with the Indian Navy (shortlisted on engineering merit) and the Indian Air Force (through AFCAT). Both times reaching the conference round. That experience built something no course can: genuine composure when it matters.</div>
+      <div class="diff-quote">"Pressure isn't a problem to be managed. It's a condition I was specifically trained for."</div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-icon">🤖 + 💡</div>
+      <div class="diff-title">AI-Fluent, Not AI-Dependent</div>
+      <div class="diff-desc">I use AI tools daily in real financial operations work — not as a novelty, but as a genuine productivity multiplier. The difference: I have the domain knowledge to verify AI outputs, direct them precisely, and catch when they're wrong. That combination is rare and increasingly valuable.</div>
+      <div class="diff-quote">"AI writes the code. I own the logic. That's the right division of labour."</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-tag">Portfolio Projects</div>
+  <div class="section-title">Work That <em>Demonstrates</em></div>
+  <div class="section-sub">Finance analytics projects built to show real-world capability — not just theoretical knowledge.</div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-type">Finance Operations · Analytics</div>
+      <div class="project-title">Finance Operations & Risk Analytics Dashboard</div>
+      <div class="project-desc">Comprehensive dashboard analysing settlements, refunds, reconciliation exceptions, and SLA breaches — assessing cash flow impact and operational risk exposure for a financial operations scenario.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">pandas</span>
+        <span class="project-tool">Power BI</span>
+        <span class="project-tool">Excel</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-type">BFSI · Customer Analytics</div>
+      <div class="project-title">Retail Banking Customer Profitability Analysis</div>
+      <div class="project-desc">Customer segmentation, profitability analysis, and risk assessment for a retail banking dataset — simulating BFSI analytical workflows including CAC, LTV, and churn risk modelling.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">pandas</span>
+        <span class="project-tool">matplotlib</span>
+        <span class="project-tool">SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-type">Process Analytics · Credit</div>
+      <div class="project-title">Loan Application Process Optimisation</div>
+      <div class="project-desc">End-to-end analysis of loan application workflow data to identify processing delays and bottlenecks. KPI dashboards tracking approval ratios and turnaround times for credit operations performance.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">Power BI</span>
+        <span class="project-tool">Excel</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-type">Telecom · SQL Analytics</div>
+      <div class="project-title">Telecom Billing & Usage Reconciliation</div>
+      <div class="project-desc">SQL-based reconciliation of telecom usage vs. billing datasets to identify overbilling patterns and data integrity risks. Variance analysis outputs directly mirroring real enterprise expense validation work.</div>
+      <div class="project-tools">
+        <span class="project-tool">SQL</span>
+        <span class="project-tool">Excel</span>
+        <span class="project-tool">Variance Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-type">Asset Management · UAT</div>
+      <div class="project-title">Asset Servicing Reconciliation & UAT Dashboard</div>
+      <div class="project-desc">Asset-level reconciliation and UAT validation using Excel dashboards, identifying mismatches between servicing records and system outputs — simulating portfolio servicing accuracy checks.</div>
+      <div class="project-tools">
+        <span class="project-tool">Excel</span>
+        <span class="project-tool">Dashboard Design</span>
+        <span class="project-tool">Reconciliation</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="background:var(--gold-pale);border-color:var(--gold)">
+      <div class="project-type" style="color:var(--gold)">Coming Soon · Macro Research</div>
+      <div class="project-title">Defense Sector Policy Impact Analysis</div>
+      <div class="project-desc">Financial impact analysis of India's defense procurement policy changes on listed defense companies — combining financial modeling with deep policy understanding. Unique intersection of finance and domain expertise.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">yfinance</span>
+        <span class="project-tool">Policy Analysis</span>
+        <span class="project-tool">DCF Modeling</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="https://github.com/Pankaj8076" target="_blank" class="btn-secondary" style="display:inline-flex">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      View All Projects on GitHub
+    </a>
+  </div>
+</section>
+
+<!-- UNIQUE ANGLE -->
+<section class="unique">
+  <div class="unique-grid">
+    <div>
+      <div class="section-tag">The Uncommon Angle</div>
+      <div class="section-title">Finance + <em>Strategy</em></div>
+      <div class="unique-text">
+        <p>Most financial analysts know how to read a balance sheet. Fewer can explain why India's current account deficit behaves the way it does, or how a change in defense procurement policy creates a 5-year tailwind for specific companies.</p>
+        <p>My 2.5 years of UPSC and defense services preparation wasn't a gap. It was an intensive, self-directed education in <strong>Indian economic history, public policy, geopolitics, and strategic affairs</strong> — the kind of macro context that separates good analysts from exceptional ones.</p>
+        <p>This knowledge is directly applicable to <strong>macro research, ESG analysis, defense sector finance, government advisory, and country risk analysis</strong> — roles that require both financial rigor and strategic depth, and where very few candidates have both.</p>
+        <p>Combined with hands-on financial operations experience and AI-augmented productivity, this creates a profile that is genuinely difficult to find — and increasingly valuable as finance becomes more data-driven and globally interconnected.</p>
+      </div>
+    </div>
+    <div class="knowledge-domains">
+      <div class="domain-item">
+        <div class="domain-icon">🏛️</div>
+        <div>
+          <div class="domain-name">Indian Economic Policy</div>
+          <div class="domain-desc">Post-1947 economic history, 1991 reforms, fiscal policy, RBI monetary framework, Union Budget analysis</div>
+        </div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-icon">🌐</div>
+        <div>
+          <div class="domain-name">Geopolitics & International Relations</div>
+          <div class="domain-desc">Multipolar world dynamics, Indo-Pacific strategy, supply chain geopolitics, sanctions impact</div>
+        </div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-icon">🎖️</div>
+        <div>
+          <div class="domain-name">Defense & Security Policy</div>
+          <div class="domain-desc">Defense procurement, offset obligations, DRDO ecosystem, defense budget structure, strategic affairs</div>
+        </div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-icon">📜</div>
+        <div>
+          <div class="domain-name">Indian & World History</div>
+          <div class="domain-desc">Historical patterns informing current economic and geopolitical dynamics — a rare analytical lens</div>
+        </div>
+      </div>
+      <div class="domain-item">
+        <div class="domain-icon">⚖️</div>
+        <div>
+          <div class="domain-name">Government Policy Impact Analysis</div>
+          <div class="domain-desc">Translating policy decisions into financial and business consequences — the bridge between government and markets</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <div class="section-title">Let's <em>Connect</em></div>
+  <p class="section-sub">Open to opportunities in Financial Analysis, FP&A, Macro Research, Defense Sector Finance, ESG, and Data Analytics roles — particularly at GCCs, fintech companies, and analytics-driven finance teams in Pune.</p>
+
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/pankaj-h-chavan-8076/" target="_blank" class="contact-link cl-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect on LinkedIn
+    </a>
+    <a href="https://github.com/Pankaj8076" target="_blank" class="contact-link cl-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      View GitHub Projects
+    </a>
+    <a href="/cdn-cgi/l/email-protection#9aeafbf4f1fbf0f2f9f2fbecfbf4a2aaadacdafdf7fbf3f6b4f9f5f7" class="contact-link cl-secondary">
+      ✉ <span class="__cf_email__" data-cfemail="3a4a5b54515b505259525b4c5b54020a0d0c7a5d575b535614595557">[email&#160;protected]</span>
+    </a>
+  </div>
+  <div class="contact-detail">Pune, Maharashtra, India · Open to hybrid and remote opportunities</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Pankaj Hanumant Chavan</div>
+  <div class="footer-copy">Financial & Data Analyst · Pune · 2025</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform += ' scale(2)';
+    ring.style.width = '48px';
+    ring.style.height = '48px';
+  });
+  el.addEventListener('mouseleave', () => {
+    ring.style.width = '32px';
+    ring.style.height = '32px';
+  });
+});
+
+
+
+// Nav shrink on scroll
+window.addEventLi
